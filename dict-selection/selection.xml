@@ -1,0 +1,4 @@
+<lcgdict>
+    <class name="CustomStruct" />
+    <class pattern="AtlasLikeDataVector<CustomStruct, *>" />
+</lcgdict>
