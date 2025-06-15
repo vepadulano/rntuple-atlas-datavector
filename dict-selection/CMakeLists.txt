@@ -14,7 +14,7 @@
 # CMakeLists.txt that creates a library with dictionary and a main program
 cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 
-project(atlaslikedatavector_dict_rootmap)
+project(atlaslikedatavector_dict_selection)
 
 #---Locate the ROOT package and defines a number of variables (e.g. ROOT_INCLUDE_DIRS)
 find_package(ROOT REQUIRED COMPONENTS Core RIO)
@@ -31,12 +31,12 @@ include_directories(${CMAKE_SOURCE_DIR})
 # CMake function provided by ROOT, used to generate the dictionary file, G__data2Tree.cxx
 #     See this link for further details:
 #     https://root.cern/manual/io_custom_classes/#using-cmake
-ROOT_GENERATE_DICTIONARY(G__AtlasLikeDataVector AtlasLikeDataVector.hxx LINKDEF AtlasLikeDataVectorLinkDef.hxx)
+ROOT_GENERATE_DICTIONARY(G__AtlasLikeDataVector AtlasLikeDataVector.hxx LINKDEF selection.xml)
 
 #---Create a shared library from
 #   * the previously generated dictionary, G__data2Tree.cxx
 #   * the class implementation
-add_library(AtlasLikeDataVector  SHARED G__AtlasLikeDataVector.cxx)
+add_library(AtlasLikeDataVector SHARED G__AtlasLikeDataVector.cxx)
 target_link_libraries(AtlasLikeDataVector ${ROOT_LIBRARIES}) 
 add_dependencies(AtlasLikeDataVector G__AtlasLikeDataVector)
 

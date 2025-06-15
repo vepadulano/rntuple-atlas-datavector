@@ -1,4 +1,6 @@
 <lcgdict>
+    <class name="DataModel_detail::NoBase" />
+    <class pattern="DataVectorBase<*>" />
     <class name="CustomStruct" />
     <class pattern="AtlasLikeDataVector<CustomStruct, *>" />
 </lcgdict>

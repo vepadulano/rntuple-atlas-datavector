@@ -10,6 +10,22 @@
 #include <variant>
 #include <vector>
 
+namespace DataModel_detail {
+struct NoBase {};
+}
+
+template <class T>
+struct DataVectorBase
+{
+  typedef DataModel_detail::NoBase Base;
+};
+
+// Forward declarations.
+namespace ROOT { namespace Meta { namespace Selection {
+  template <class T, class BASE> class AtlasLikeDataVector;
+}}}
+
+
 struct CustomStruct {
   template <typename T> using MyVec = std::vector<T>;
 
@@ -28,7 +44,7 @@ struct CustomStruct {
   }
 };
 
-template <class T, class BASE = std::vector<T>>
+template <class T, class BASE = typename DataVectorBase<T>::Base>
 class AtlasLikeDataVector : public BASE {};
 
 struct SecondTemplatePlaceHolder {};
