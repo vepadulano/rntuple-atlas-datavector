@@ -59,11 +59,9 @@ class AtlasLikeDataVector : KeepFirstTemplateArguments<1>, SelectNoInstance {};
 namespace {
 struct DUMMY_INSTANTIATION {
   AtlasLikeDataVector<CustomStruct, SecondTemplatePlaceHolder> dummy1;
-  ROOT::Meta::Selection::AtlasLikeDataVector<CustomStruct,
-                                             SecondTemplatePlaceHolder>
-      dummy4;
-  AtlasLikeDataVector<int> dummy2;
-  ROOT::Meta::Selection::AtlasLikeDataVector<int> dummy3;
+  ROOT::Meta::Selection::AtlasLikeDataVector<CustomStruct, SecondTemplatePlaceHolder> dummy4;
+//  AtlasLikeDataVector<CustomStruct> dummy2;
+//  ROOT::Meta::Selection::AtlasLikeDataVector<int> dummy3;
 };
 } // namespace
 

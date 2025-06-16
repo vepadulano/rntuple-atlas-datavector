@@ -41,7 +41,16 @@ target_link_libraries(AtlasLikeDataVector ${ROOT_LIBRARIES})
 add_dependencies(AtlasLikeDataVector G__AtlasLikeDataVector)
 
 #---Create  a main program using the library
+
 add_executable(test_tclass test_tclass.cpp)
 target_link_libraries(test_tclass ${ROOT_LIBRARIES} AtlasLikeDataVector)
 
 
+add_executable(test_tclass_nolink test_tclass.cpp)
+target_link_libraries(test_tclass_nolink ${ROOT_LIBRARIES})
+
+add_executable(test_getdemangledtypename_nolink test_getdemangledtypename.cpp)
+target_link_libraries(test_getdemangledtypename_nolink ${ROOT_LIBRARIES})
+
+add_executable(test_getdemangledtypename_link test_getdemangledtypename.cpp)
+target_link_libraries(test_getdemangledtypename_link ${ROOT_LIBRARIES} AtlasLikeDataVector)
